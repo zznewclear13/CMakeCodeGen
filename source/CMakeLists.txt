@@ -1,0 +1,42 @@
+cmake_minimum_required(VERSION 3.20.0 FATAL_ERROR)
+
+set(CMAKE_CODE_GEN_NEW_CLASS_WATCHER CMakeNewClassWatcher.txt)
+set_property(
+    DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+    PROPERTY CMAKE_CONFIGURE_DEPENDS
+    ${CMAKE_CURRENT_SOURCE_DIR}/${CMAKE_CODE_GEN_NEW_CLASS_WATCHER}
+)
+
+set(PYTHON_FILE GenClass.py)
+set(PYTHON_ARGS ${PYTHON_FILE} -s ${CMAKE_CURRENT_SOURCE_DIR} -n ${CMAKE_CODE_GEN_NEW_CLASS_WATCHER})
+execute_process(
+    COMMAND ${Python_EXECUTABLE} ${PYTHON_ARGS}
+    WORKING_DIRECTORY ${CMAKE_CODE_GEN_PROJECT_DIR}
+    OUTPUT_VARIABLE PYTHON_OUTPUT
+    RESULT_VARIABLE PYTHON_RESULT
+    ERROR_VARIABLE PYTHON_ERROR
+)
+
+if (NOT ${PYTHON_RESULT} EQUAL 0)
+    message(FATAL_ERROR "[${CMAKE_CODE_GEN_NAME}] ${PYTHON_FILE} returns ${PYTHON_RESULT}: ${PYTHON_ERROR}." )
+endif()
+
+file(GLOB_RECURSE SOURCE_FILES *.cpp* *.h* *.hpp*)
+list(FILTER SOURCE_FILES EXCLUDE REGEX ${CMAKE_CODE_GEN_SOURCE_DIR}/modules/*)
+# message("[${CMAKE_CODE_GEN_NAME}] SOURCE_FILES: ${SOURCE_FILES}")
+
+message("\n[${CMAKE_CODE_GEN_NAME}] Begin building Visual Studio filters: ")
+foreach(SOURCE_FILE IN ITEMS ${SOURCE_FILES})
+    get_filename_component(SOURCE_FILE_PATH "${SOURCE_FILE}" PATH)
+    string(REPLACE "${CMAKE_CURRENT_SOURCE_DIR}" "" GROUP_PATH "${SOURCE_FILE_PATH}")
+    string(REPLACE "/" "\\" GROUP_PATH "${GROUP_PATH}")
+    message(${SOURCE_FILE})
+    source_group("${GROUP_PATH}" FILES "${SOURCE_FILE}")
+endforeach()
+message("[${CMAKE_CODE_GEN_NAME}] End building Visual Studio filters.\n")
+
+add_executable(${CMAKE_CODE_GEN_NAME} ${SOURCE_FILES})
+target_include_directories(${CMAKE_CODE_GEN_NAME} PRIVATE ${CMAKE_CODE_GEN_INCLUDE_DIR})
+target_link_directories(${CMAKE_CODE_GEN_NAME} PRIVATE ${CMAKE_CODE_GEN_LIBRARY_DIR})
+
+add_subdirectory(modules)

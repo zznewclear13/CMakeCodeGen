@@ -1,0 +1,11 @@
+#include "module_system/ModuleManager.h"
+
+{% for ModuleName in ModuleNames %}
+#include "modules/{{ModuleName}}.h"{% endfor %}
+
+void ModuleManager::RegisterAllModules()
+{
+{% for ModuleClassName in ModuleClassNames %}
+    ModuleManager::Get().Register<{{ModuleClassName}}>();{% endfor %}
+    
+}

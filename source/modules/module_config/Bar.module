@@ -1,0 +1,8 @@
+---
+ModuleName: dummy.bar
+ModuleClassName: dummy_bar
+ModuleDisplayName: Dummy Bar
+ModuleDescription: Bar's implementation of dummy.
+ModuleInterfaceName: IDummy
+ModuleImplementationName: Bar
+ModuleArgument: "bar"

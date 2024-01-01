@@ -1,0 +1,7 @@
+---
+ModuleName: dummy.foo
+ModuleClassName: dummy_foo
+ModuleDisplayName: Dummy foo
+ModuleDescription: Foo's implementation of dummy.
+ModuleInterfaceName: IDummy
+ModuleImplementationName: Foo

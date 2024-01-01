@@ -1,0 +1,18 @@
+#include "{{ModuleName}}.h"
+
+#include "implementations/{{ModuleImplementationName}}.h"
+
+const ModuleDescription& {{ModuleClassName}}::GetDesc() const
+{
+    static const ModuleDescription desc{
+        "{{ModuleName}}",
+        "{{ModuleDisplayName}}",
+        "{{ModuleDescription}}",
+    };
+    return desc;
+}
+
+void {{ModuleClassName}}::Register(IoCRegistrations& registrar)
+{
+    registrar.Register<{{ModuleInterfaceName}}, {{ModuleImplementationName}}>({{ModuleArgument}});
+}

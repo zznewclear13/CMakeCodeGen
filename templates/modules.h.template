@@ -1,0 +1,10 @@
+#pragma once
+
+#include "module_system/IModule.h"
+
+class {{ModuleClassName}} : public IModule
+{
+public:
+    const ModuleDescription& GetDesc() const override;
+    void Register(IoCRegistrations& registrar) override;
+};
