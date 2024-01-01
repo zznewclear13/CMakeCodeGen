@@ -10,7 +10,7 @@
 2. 通过模板创建模块类并自动添加到工程中。Create module class from template and add to project automatically.
     - 在`modules/module_config/`中添加或移除`*.module`文件。Add or remove `*.module` files in `modules/module_config/`.
     - 在Visual Studio中点击`Build->Build Solution`开始构建。Click `Build->Build Solution` to start building in Visual Studio.
-3. 控制反转的设计来自于Ludwig Füchsl的[Boundless2D](https://github.com/Ohjurot/Boundless2D)。The Inversion of Controll design pattern comes from [Boundless2D](https://github.com/Ohjurot/Boundless2D) by Ludwig Füchsl.
+3. 控制反转的设计来自于Ludwig Füchsl的[Boundless2D](https://github.com/Ohjurot/Boundless2D)。The Inversion of Control design pattern comes from [Boundless2D](https://github.com/Ohjurot/Boundless2D) by Ludwig Füchsl.
 
 ## 使用方法Usage
 
@@ -28,7 +28,3 @@ git clone https://github.com/zznewclear13/CMakeCodeGen.git
     - dummy.bar.h
 4. 双击`build.bat`进行构建。Double click `build.bat` to build.
 5. 在`binary/Release/bin`下即可找到构建好的`CMakeCodeGen.exe`。`CMakeCodeGen.exe` will be built to `binary/Release/bin`.
-
-## 缺陷Flaws
-
-本项目使用了CMake中`file(GLOB CONFIGURE_DEPENDS)`来获取module的模板文件，只能检测到增加删除，而不能检测到修改。This project uses `file(GLOB CONFIGURE_DEPENDS)` to monitor template files for modules, only adding/removing can be detected, modifing any template files would not be detected.
