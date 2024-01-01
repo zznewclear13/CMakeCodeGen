@@ -4,5 +4,5 @@ class IDummy
 {
 public:
     virtual ~IDummy() = default;
-    virtual void SayHello() = 0;
+    virtual void SayHello() const = 0;
 };

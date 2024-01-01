@@ -7,5 +7,5 @@ class Bar : public IDummy
 {
 public:
     Bar(IoCStack& ioc);
-    void SayHello() override;
+    void SayHello() const override;
 };

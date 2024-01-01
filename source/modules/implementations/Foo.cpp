@@ -7,7 +7,7 @@ Foo::Foo(IoCStack& ioc)
 {
 }
 
-void Foo::SayHello()
+void Foo::SayHello() const
 {
     std::cout << "Foo::SayHello" << std::endl;
 }

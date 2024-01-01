@@ -12,8 +12,10 @@ int main()
     ModuleManager::RegisterAllModules();
     
     IoCStack stack{};
-    stack.Get<IDummy>().SayHello();
-    stack.Get<IDummy>("bar").SayHello();
+    auto& foo{ stack.Get<IDummy>() };
+    foo.SayHello();
+    auto& bar{ stack.Get<IDummy>("bar") };
+    bar.SayHello();
 
     system("PAUSE");
     return 0;

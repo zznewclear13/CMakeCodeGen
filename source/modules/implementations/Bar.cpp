@@ -7,7 +7,7 @@ Bar::Bar(IoCStack& ioc)
 {
 }
 
-void Bar::SayHello()
+void Bar::SayHello() const
 {
     std::cout << "Bar::SayHello" << std::endl;
 }
