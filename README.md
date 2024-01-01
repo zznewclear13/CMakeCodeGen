@@ -10,7 +10,7 @@
 2. 通过模板创建模块类并自动添加到工程中。Create module class from template and add to project automatically.
     - 在`modules/module_config/`中添加或移除`*.module`文件。Add or remove `*.module` files in `modules/module_config/`.
     - 在Visual Studio中点击`Build->Build Solution`开始构建。Click `Build->Build Solution` to start building in Visual Studio.
-3. 控制反转的设计来自于Ludwig Füchsl的(Boundless2D)[https://github.com/Ohjurot/Boundless2D]。The Inversion of Controll design pattern comes from (Boundless2D)[https://github.com/Ohjurot/Boundless2D] by Ludwig Füchsl.
+3. 控制反转的设计来自于Ludwig Füchsl的[Boundless2D](https://github.com/Ohjurot/Boundless2D)。The Inversion of Controll design pattern comes from [Boundless2D](https://github.com/Ohjurot/Boundless2D) by Ludwig Füchsl.
 
 ## 使用方法Usage
 
