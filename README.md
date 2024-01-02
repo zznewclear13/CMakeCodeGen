@@ -14,17 +14,21 @@
 
 ## 使用方法Usage
 
-1. 通过git下载本仓库。Download this repository using git.
+1. 通过git下载本仓库，安装python, jinja2和pyyaml。Download this repository using git, install python, jinja2 and pyyaml.
 ```
 git clone https://github.com/zznewclear13/CMakeCodeGen.git
+
+pip install jinja2
+pip install pyyaml
 ```
 2. 双击`configure.bat`配置VS工程。Double click `configure.bat` to configure Visual Studio project.
-3. 初次构建会创建这些文件Following files will be generated during first configuration:
+3. 初次构建会创建这些文件：Following files will be generated during first configuration:
     - source/NewClass.cpp
     - source/NewClass.h
-    - dummy.foo.cpp
-    - dummy.foo.h
-    - dummy.bar.cpp
-    - dummy.bar.h
+    - source/module_system/RegisterAllModules.cpp
+    - source/modules/dummy.foo.cpp
+    - source/modules/dummy.foo.h
+    - source/modules/dummy.bar.cpp
+    - source/modules/dummy.bar.h
 4. 双击`build.bat`进行构建。Double click `build.bat` to build.
 5. 在`binary/Release/bin`下即可找到构建好的`CMakeCodeGen.exe`。`CMakeCodeGen.exe` will be built to `binary/Release/bin`.
